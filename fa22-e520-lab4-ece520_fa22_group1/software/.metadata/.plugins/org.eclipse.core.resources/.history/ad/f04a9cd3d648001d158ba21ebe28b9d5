@@ -1,0 +1,75 @@
+#include "xparameters.h" 	// Contains system parameters for the Xilinx device driver
+#include "sleep.h"			// Contains functions for creating a pause in the execution
+#include "xil_printf.h"		// To Print to the STDOUT
+#include "PmodTMP3.h"		// Contains TMP3 driver functions
+
+PmodTMP3 myDevice;	// Global Variable - Initialize PMOD for temperature
+
+int main() {
+
+	xil_printf("Program started\r\n");
+    // Print a message indicating the program started
+    // Note You need to update the BSP to forward STDOUT to Pmod UART.
+    // Initialize the device use the following
+    // TMP3_begin(device_object_address, <DEVICE_ID_FOR_PMODTMP>, TMP3_ADDR);
+
+	TMP3_begin(&myDevice, XPAR_PMODTMP3_0_AXI_LITE_IIC_BASEADDR, TMP3_ADDR);
+			// Address	  Device ID for PMOD
+
+    while(1) {
+		xil_printf("Running program ...\r\n");
+		sleep(1);
+
+		double RawT = TMP3_getTemp(&myDevice);	// Get the temperature TMP3_getTemp(device_object_address);
+		xil_printf("Raw Temp: %f\r\n", RawT);
+
+		double TempF = TMP3_CtoF(RawT);		// Convert raw temp to Farh. Use TMP3_CtoF(temp);
+		double TempC = TMP3_FtoC(TempF);		// Convert raw temp to Celc. Use TMP3_CtoC(temp);
+
+		xil_printf("Temp [Farh.]: %f\r\n", TempF);
+		xil_printf("Temp [Celc.]: %f\r\n", TempC);
+
+		int TempF_round = 0;	int TempF_int = 0;	  int TempF_frac = 0;
+
+		/*	Clean up the converted data. Separate integer from fraction part
+			Round to nearest hundredth, multiply by 100 					  */
+
+		if (TempF < 0) {
+			TempF_round = (int) (TempF * 1000 - 5) / 10;
+			TempF_frac  = -TempF_round % 100;
+		} else {
+			TempF_round = (int) (TempF * 1000 + 5) / 10;
+			TempF_frac  = TempF_round % 100;
+		}
+		TempF_int = TempF_round / 100;
+
+		int TempC_round = 0;	int TempC_int = 0;	  int TempC_frac = 0;
+
+		// Repeat example above for Cecl
+
+		if (TempC < 0) {
+			TempC_round = (int) (TempC * 1000 - 5) / 10;
+			TempC_frac  = -TempC_round % 100;
+		} else {
+			TempC_round = (int) (TempC * 1000 + 5) / 10;
+			TempC_frac  = TempC_round % 100;
+		}
+		TempC_int = TempC_round / 100;
+
+		// print the result of Farh and Celsius to stdout. Use xil_printf
+
+		xil_printf("Temperature: %d.%d in Fahrenheit \r\n", TempF_int, TempF_frac);
+		xil_printf("Temperature: %d.%d in Celsius \r\n\r\n", TempC_int, TempC_frac);
+		sleep(1);
+
+		// wait for 1 sec before running again. use sleep(1);
+    }
+	return 0;
+
+	TMP3_end(&myDevice);
+	xil_printf("PMOD-TMP3 Disconnected \r\n");
+	xil_printf("Closing UART Connection \r\n");
+
+    // Remove the object to prevent memory leak after program exit
+    // Use TMP3_end(device_object_address);
+}

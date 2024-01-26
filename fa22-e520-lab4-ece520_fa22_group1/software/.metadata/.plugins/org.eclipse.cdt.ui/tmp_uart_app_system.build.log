@@ -1,0 +1,10 @@
+13:38:38 **** Build of configuration Debug for project tmp_uart_app_system ****
+make all 
+Generating bif file for the system project
+Executing command '::scw::generate_bif -xpfm /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/software/tmp_sens_bd_wrapper/export/tmp_sens_bd_wrapper/tmp_sens_bd_wrapper.xpfm -domains standalone_ps7_cortexa9_0 -bifpath /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/software/tmp_uart_app_system/Debug/system.bif' on XSCT
+sdcard_gen --xpfm /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/software/tmp_sens_bd_wrapper/export/tmp_sens_bd_wrapper/tmp_sens_bd_wrapper.xpfm --sys_config tmp_sens_bd_wrapper --bif /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/software/tmp_uart_app_system/Debug/system.bif --bitstream /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/software/tmp_uart_app/_ide/bitstream/tmp_sens_bd_wrapper.bit --elf /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/software/tmp_uart_app/Debug/tmp_uart_app.elf,ps7_cortexa9_0
+creating BOOT.BIN using /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/software/tmp_uart_app/_ide/bitstream/tmp_sens_bd_wrapper.bit
+Running /tools/Xilinx/Vitis/2022.1/bin/bootgen  -image /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/software/tmp_uart_app_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN
+
+13:39:03 Build Finished (took 24s.264ms)
+

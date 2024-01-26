@@ -1,0 +1,44 @@
+#include "PmodTMP3.h"
+#include "xil_cache.h"
+#include "xil_printf.h"
+#include "xparameters.h"
+#include "sleep.h"
+#include "stdio.h"
+
+void DemoInitialize();
+void DemoRun();
+void DemoCleanup();
+
+PmodTMP3 myDevice;
+
+int main(){
+
+	DemoInitialize();
+	DemoRun();
+	DemoCleanup();
+
+	while(1){
+		temp = TMP3_getTemp(&myDevice);
+		temp2 = TMP3_CtoF(temp);
+		temp3 = TMP3_FtoC(temp2);
+
+		int temp2_round = 0;
+		int temp2_int 	= 0;
+		int temp2_frac 	= 0;
+	}
+
+	return 0;
+}
+
+void DemoInitialize() {
+	xilprintf("Connected to PmodTMP3 Demo over UART\n\r");
+	TMP3_begin(&myDevice, XPAR_PMODTMP3_0_AXI_LITE_IIC_BASEADDR, TMP3_ADDR);
+	xil_printf("Connected to PmodTMP3 over IIC \n\r\n\r");
+}
+
+void DemoRun() {
+	double temp = 0.0;
+	double temp2 = 0.0;
+	double temp3 = 0.0;
+}
+

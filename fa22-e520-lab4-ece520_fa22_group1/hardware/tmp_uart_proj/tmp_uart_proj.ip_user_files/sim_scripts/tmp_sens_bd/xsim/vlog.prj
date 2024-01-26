@@ -1,0 +1,8 @@
+verilog xil_defaultlib --include "/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" --include "../../../../tmp_uart_proj.gen/sources_1/bd/tmp_sens_bd/ipshared/ec67/hdl" --include "../../../../tmp_uart_proj.gen/sources_1/bd/tmp_sens_bd/ipshared/5765/hdl" \
+"../../../bd/tmp_sens_bd/ip/tmp_sens_bd_processing_system7_0_0/sim/tmp_sens_bd_processing_system7_0_0.v" \
+"../../../bd/tmp_sens_bd/ip/tmp_sens_bd_auto_pc_0/sim/tmp_sens_bd_auto_pc_0.v" \
+"../../../bd/tmp_sens_bd/sim/tmp_sens_bd.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

@@ -1,0 +1,4 @@
+orig int: x=3, y=7
+swap int: x=7, y=3
+orig char: x=a, y=b
+swap char: x=b, y=a

@@ -1,0 +1,3 @@
+w
+second line of input
+more input

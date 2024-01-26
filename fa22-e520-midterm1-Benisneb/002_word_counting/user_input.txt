@@ -1,0 +1,3 @@
+line 1 of my text
+another line with more text
+last line of my text

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Mon Oct 10 16:09:34 2022
+# Process ID: 3703
+# Current directory: /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/hardware/tmp_uart_proj/tmp_uart_proj.runs/synth_1
+# Command line: vivado -log tmp_sens_bd_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tmp_sens_bd_wrapper.tcl
+# Log file: /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/hardware/tmp_uart_proj/tmp_uart_proj.runs/synth_1/tmp_sens_bd_wrapper.vds
+# Journal file: /home/arianna1/Desktop/ECE520/csun-ece/fa22-e520-lab4-ece520_fa22_group1/hardware/tmp_uart_proj/tmp_uart_proj.runs/synth_1/vivado.jou
+# Running On: arianna1-X510UAR, OS: Linux, CPU Frequency: 2000.000 MHz, CPU Physical cores: 4, Host memory: 8216 MB
+#-----------------------------------------------------------
+source tmp_sens_bd_wrapper.tcl -notrace
